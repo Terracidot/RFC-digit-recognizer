@@ -1,5 +1,6 @@
 # RFC machine learning model
 ### Random Forest Classifier machine learning model designed to analize and predict digits.
+### Used for a competition on Kaggle with a 97% accuracy.
 ### Hyper Parameter Tuning:
 ### - Sigmoid is used in the output layer while making binary predictions.
 ### - Softmax is used in the output layer while making multi-class predictions.
