@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
 
-dataframe = pd.read_csv(r"C:\Users\Matthew\Google Drive\Python work\Kaggle Work\Digit recognizer data\train.csv")
+dataframe = pd.read_csv(r"path_of_your_downloaded_df.csv")
 
 print(dataframe.head())
 print(dataframe.columns[0:10])
@@ -54,24 +54,23 @@ print('x_test', x_test)
 print('y_train', y_train)
 print('y_test', y_test)
 
+rfc = RandomForestClassifier(n_estimators=100).fit(x_train, y_train)
+rfc_pred = rfc.predict(x_test)
 
-# rfc = RandomForestClassifier(n_estimators=100).fit(x_train, y_train)
-# rfc_pred = rfc.predict(x_test)
-#
-# print(len(rfc_pred))
-#
-# d1 = pd.DataFrame(columns=['ImageId'])
-# d2 = pd.DataFrame(rfc_pred, columns=['label'])
-#
-# # Join both datasets and print to a csv file
-# d3 = pd.concat([d1, d2], axis=1)
-# #pd.DataFrame(d3).to_csv('predictions.csv', index=['ImageId'])
-# print(d3)
-#
-# #print('random forest matrix', confusion_matrix(y_test, rfc_pred))
-# #print('random forest classification report', classification_report(y_test, rfc_pred))
-# #print('MAE:', metrics.mean_absolute_error(y_test, rfc_pred))
-# #print('MSE:', metrics.mean_squared_error(y_test, rfc_pred))  # Most used for real life situations NB!!!!
-# #print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, rfc_pred)))
-# #plt.tight_layout()
-# #plt.show()
+print(len(rfc_pred))
+
+d1 = pd.DataFrame(columns=['ImageId'])
+d2 = pd.DataFrame(rfc_pred, columns=['label'])
+
+# Join both datasets and print to a csv file
+d3 = pd.concat([d1, d2], axis=1)
+#pd.DataFrame(d3).to_csv('predictions.csv', index=['ImageId'])
+print(d3)
+
+#print('random forest matrix', confusion_matrix(y_test, rfc_pred))
+#print('random forest classification report', classification_report(y_test, rfc_pred))
+#print('MAE:', metrics.mean_absolute_error(y_test, rfc_pred))
+#print('MSE:', metrics.mean_squared_error(y_test, rfc_pred))  # Most used for real life situations NB!!!!
+#print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, rfc_pred)))
+#plt.tight_layout()
+#plt.show()
